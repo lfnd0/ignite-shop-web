@@ -2,6 +2,7 @@ import { stripe } from '@/lib/stripe';
 import { HomeContainer, Product } from "@/styles/pages/home";
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
+import { GetServerSideProps } from 'next';
 import Image from "next/image";
 import Stripe from 'stripe';
 
@@ -39,7 +40,7 @@ export default function Home({ products }: HomeProps) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const response = await stripe.products.list({
     expand: ['data.default_price'],
   });
