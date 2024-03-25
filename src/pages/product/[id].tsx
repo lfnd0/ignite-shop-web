@@ -18,7 +18,13 @@ export default function Product({ product }: ProductProps) {
   return (
     <ProductContainer>
       <ImageContainer>
-        <Image src={product.imageUrl} width={520} height={440} alt="" />
+        <Image
+          src={product.imageUrl}
+          width={520}
+          height={440}
+          priority={false}
+          alt=""
+        />
       </ImageContainer>
       <ProductDetails>
         <h1>{product.name}</h1>
@@ -41,7 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       },
     ],
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
