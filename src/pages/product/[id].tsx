@@ -1,16 +1,20 @@
-import { stripe } from "@/lib/stripe"
-import { ImageContainer, ProductContainer, ProductDetails } from "@/styles/pages/product"
-import { GetStaticPaths, GetStaticProps } from "next"
-import Image from "next/image"
-import Stripe from "stripe"
+import { stripe } from '@/lib/stripe'
+import {
+  ImageContainer,
+  ProductContainer,
+  ProductDetails,
+} from '@/styles/pages/product'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import Image from 'next/image'
+import Stripe from 'stripe'
 
 interface ProductProps {
   product: {
-    id: string;
-    name: string;
-    imageUrl: string;
-    price: string;
-    description: string;
+    id: string
+    name: string
+    imageUrl: string
+    price: string
+    description: string
   }
 }
 
@@ -30,9 +34,7 @@ export default function Product({ product }: ProductProps) {
         <h1>{product.name}</h1>
         <span>{product.price}</span>
         <p>{product.description}</p>
-        <button>
-          Comprar
-        </button>
+        <button>Comprar</button>
       </ProductDetails>
     </ProductContainer>
   )
@@ -51,7 +53,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
+  params,
+}) => {
   const productId = params!.id
   const product = await stripe.products.retrieve(productId, {
     expand: ['default_price'],
