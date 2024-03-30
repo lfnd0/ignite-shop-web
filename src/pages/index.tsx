@@ -43,8 +43,9 @@ export default function Home({ products }: HomeProps) {
                 <Image
                   src={product.imageUrl}
                   width={520}
-                  height={480}
-                  priority={false}
+                  height={0}
+                  priority
+                  style={{ width: 'auto', height: '480px', objectFit: 'cover' }}
                   alt=""
                 />
                 <footer>

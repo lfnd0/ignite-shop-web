@@ -17,9 +17,6 @@ export const Product = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   overflow: 'hidden',
-  img: {
-    objectFit: 'cover',
-  },
   footer: {
     position: 'absolute',
     bottom: '0.25rem',
