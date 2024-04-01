@@ -1,8 +1,8 @@
 import { stripe } from '@/lib/stripe'
 import {
-  ImageContainer,
-  ProductContainer,
-  ProductDetails,
+    ImageContainer,
+    ProductContainer,
+    ProductDetails,
 } from '@/styles/pages/product'
 import axios from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -44,7 +44,7 @@ export default function Product({ product }: ProductProps) {
   return (
     <>
       <Head>
-        <title>{`${product.name} | Ignite Shop`}</title>
+        <title>{`${product.name} | T-Shirt Shop`}</title>
       </Head>
 
       <ProductContainer>
